@@ -1,23 +1,16 @@
-import logo from './logo.svg';
+import { useEffect, useState } from "react";
 import './App.css';
+import Post from './components/Post';
 
 function App() {
+  const [toggle, settoggle] = useState(false);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={() => settoggle(!toggle)} style={{padding:"20px 30px",marginTop:"5%",backgroundColor:"#3DC2EC",border:"none",borderRadius:"10px",fontWeight:"600"}}>
+        {toggle ? "GET POSTS" : "HIDE POSTS"}
+      </button>
+      {toggle ? null:<Post /> }
+      
     </div>
   );
 }
